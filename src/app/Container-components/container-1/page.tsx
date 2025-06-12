@@ -4,6 +4,7 @@ import API_GET from "./api-Call";
 import Image from "next/image";
 import img1 from "../../../../public/img.jpg";
 import { Col, Row } from "antd";
+import imgBoom from "../../../../public/Boom-Icon-Transparent-Images.png"
 
 interface User {
   status: string;
@@ -35,17 +36,21 @@ export default function Container() {
     const API = await API_GET(
       "https://fakerapi.it/api/v2/users?_quantity=1&_gender=male"
     );
-    const obj = {
-      name: API.data[0].firstname,
-    };
-    setMessage(API);
+    setTimeout(() => {
+      setMessage(API);
+    }, 4000); 
   }
   return (
     <>
       <Row style={{ height: "0px" }}>
         <Col>
           <button
-            style={{ height: "60px", width: "200px" }}
+            style={{ height: "60px", width: "200px",padding: "0.5rem 1rem",  
+              display: "inline-flex",  
+              alignItems: "center",    
+              justifyContent: "center",
+              cursor: "pointer",        
+              border: "1px solid transparent" }}
             onClick={() => {
               setBoll((prevState) => !prevState), GetAPI();
             }}
@@ -106,22 +111,17 @@ export default function Container() {
                     <br />
                   </p>
                   <hr style={{ transform: "translate(-6px , 10px)" }} />
-                  <p style={{ marginTop: "20px" }}>
-                    code : {message?.code}
-                    <br></br>
-                    <br></br>
-                    locale : {message?.locale}
-                    <br></br>
-                    <br></br>
-                    seed : {message?.seed}
-                    <br></br>
-                    <br></br>
+                  <br />
+                  <p style={{ marginTop: "20px", paddingRight:"20px"}}>
+                    ho creato 2 componenti 1 tsx e 1 ts da tsx chiamo il ts e da qui ts che chiama con fetch e quando arriva da tsx seleziono le info da prendere
                   </p>
                 </>
               )}
+              
               {message == null && <h1>Aspetta un secondo .... </h1> }
             </div>
           )}
+          {boll == false && <Image style={{transform:"translate(30px , -84px)"}} src={imgBoom} alt=""></Image>}
         </Col>
       </Row>
     </>

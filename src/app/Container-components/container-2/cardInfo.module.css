@@ -1,0 +1,8 @@
+.div1{
+    height:360px;
+    width: 380px;
+    background-Color: blue;
+    transform: translate(580px , -455px);
+    box-sizing: border-box;
+    padding: 10px;
+}

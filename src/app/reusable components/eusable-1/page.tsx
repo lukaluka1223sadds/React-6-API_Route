@@ -1,7 +1,7 @@
 import styles from "./page.module.css"
 
 interface Child {
-    children:React.ReactNode
+    children?:React.ReactNode
 }
 
 export default function Reusable1(props:Child){
